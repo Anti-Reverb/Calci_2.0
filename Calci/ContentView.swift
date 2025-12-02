@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("streak") var streak = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(String(streak))
+            
+            Button(action: {
+                streak += 1
+            },label: {
+                Text("+1")
+            })
         }
         .padding()
     }
