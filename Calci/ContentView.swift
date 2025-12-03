@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @AppStorage("streak") var streak = 0
+    @AppStorage("streak", store: UserDefaults(suiteName: "group.calciwidget")) var streak = 0
     
     var body: some View {
         

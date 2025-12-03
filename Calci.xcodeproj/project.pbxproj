@@ -6,14 +6,66 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		92123AD72EE00C89006D795D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92123AD62EE00C88006D795D /* WidgetKit.framework */; };
+		92123AD92EE00C89006D795D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92123AD82EE00C89006D795D /* SwiftUI.framework */; };
+		92123AE42EE00C8A006D795D /* calci_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 92123AD42EE00C88006D795D /* calci_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92123AE22EE00C8A006D795D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92123AAE2EDEFAAB006D795D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92123AD32EE00C88006D795D;
+			remoteInfo = calci_widgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92123AE52EE00C8A006D795D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				92123AE42EE00C8A006D795D /* calci_widgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		92123AB62EDEFAAB006D795D /* Calci.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calci.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92123AD42EE00C88006D795D /* calci_widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = calci_widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		92123AD62EE00C88006D795D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		92123AD82EE00C89006D795D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		92123AEB2EE010B7006D795D /* calci_widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = calci_widgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		92123AE82EE00C8A006D795D /* Exceptions for "calci_widget" folder in "calci_widgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 92123AD32EE00C88006D795D /* calci_widgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		92123AB82EDEFAAB006D795D /* Calci */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Calci;
+			sourceTree = "<group>";
+		};
+		92123ADA2EE00C89006D795D /* calci_widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				92123AE82EE00C8A006D795D /* Exceptions for "calci_widget" folder in "calci_widgetExtension" target */,
+			);
+			path = calci_widget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +78,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92123AD12EE00C88006D795D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92123AD92EE00C89006D795D /* SwiftUI.framework in Frameworks */,
+				92123AD72EE00C89006D795D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		92123AAD2EDEFAAB006D795D = {
 			isa = PBXGroup;
 			children = (
+				92123AEB2EE010B7006D795D /* calci_widgetExtension.entitlements */,
 				92123AB82EDEFAAB006D795D /* Calci */,
+				92123ADA2EE00C89006D795D /* calci_widget */,
+				92123AD52EE00C88006D795D /* Frameworks */,
 				92123AB72EDEFAAB006D795D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +105,18 @@
 			isa = PBXGroup;
 			children = (
 				92123AB62EDEFAAB006D795D /* Calci.app */,
+				92123AD42EE00C88006D795D /* calci_widgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		92123AD52EE00C88006D795D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92123AD62EE00C88006D795D /* WidgetKit.framework */,
+				92123AD82EE00C89006D795D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +129,12 @@
 				92123AB22EDEFAAB006D795D /* Sources */,
 				92123AB32EDEFAAB006D795D /* Frameworks */,
 				92123AB42EDEFAAB006D795D /* Resources */,
+				92123AE52EE00C8A006D795D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				92123AE32EE00C8A006D795D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				92123AB82EDEFAAB006D795D /* Calci */,
@@ -69,6 +145,28 @@
 			productName = Calci;
 			productReference = 92123AB62EDEFAAB006D795D /* Calci.app */;
 			productType = "com.apple.product-type.application";
+		};
+		92123AD32EE00C88006D795D /* calci_widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92123AE92EE00C8A006D795D /* Build configuration list for PBXNativeTarget "calci_widgetExtension" */;
+			buildPhases = (
+				92123AD02EE00C88006D795D /* Sources */,
+				92123AD12EE00C88006D795D /* Frameworks */,
+				92123AD22EE00C88006D795D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				92123ADA2EE00C89006D795D /* calci_widget */,
+			);
+			name = calci_widgetExtension;
+			packageProductDependencies = (
+			);
+			productName = calci_widgetExtension;
+			productReference = 92123AD42EE00C88006D795D /* calci_widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +179,9 @@
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					92123AB52EDEFAAB006D795D = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					92123AD32EE00C88006D795D = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
@@ -100,12 +201,20 @@
 			projectRoot = "";
 			targets = (
 				92123AB52EDEFAAB006D795D /* Calci */,
+				92123AD32EE00C88006D795D /* calci_widgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		92123AB42EDEFAAB006D795D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92123AD22EE00C88006D795D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +231,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92123AD02EE00C88006D795D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92123AE32EE00C8A006D795D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92123AD32EE00C88006D795D /* calci_widgetExtension */;
+			targetProxy = 92123AE22EE00C8A006D795D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		92123ABF2EDEFAAC006D795D /* Debug */ = {
@@ -251,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Calci/Calci.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9ZMVCY88T4;
@@ -283,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Calci/Calci.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9ZMVCY88T4;
@@ -310,6 +436,68 @@
 			};
 			name = Release;
 		};
+		92123AE62EE00C8A006D795D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = calci_widgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZMVCY88T4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = calci_widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = calci_widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aryan.Calci.calci-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92123AE72EE00C8A006D795D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = calci_widgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9ZMVCY88T4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = calci_widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = calci_widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aryan.Calci.calci-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +515,15 @@
 			buildConfigurations = (
 				92123AC22EDEFAAC006D795D /* Debug */,
 				92123AC32EDEFAAC006D795D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92123AE92EE00C8A006D795D /* Build configuration list for PBXNativeTarget "calci_widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92123AE62EE00C8A006D795D /* Debug */,
+				92123AE72EE00C8A006D795D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
