@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     
@@ -25,8 +26,10 @@ struct ContentView: View {
                     Circle()
                         .stroke(Color.white.opacity(0.1), lineWidth: 20)
                     
+                    let pct = Double(streak)/100.0
+                    
                     Circle()
-                        .trim(from: 0, to: 0.34)
+                        .trim(from: 0, to: pct)
                         .stroke(.blue, style:
                                     StrokeStyle(lineWidth: 20,
                                                 lineCap: .round,
@@ -49,6 +52,10 @@ struct ContentView: View {
                 
                 Button(action: {
                     streak += 1
+                    
+                    // Manually reload the widget
+                    WidgetCenter.shared.reloadTimelines(ofKind: "calci_widget")
+                    
                 },label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25)

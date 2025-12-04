@@ -9,12 +9,15 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
+    
+    let data = DataService()
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        SimpleEntry(date: Date(), streak: data.progress())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(date: Date(), streak: data.progress())
         completion(entry)
     }
 
@@ -25,7 +28,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = SimpleEntry(date: entryDate, streak: data.progress())
             entries.append(entry)
         }
 
@@ -40,20 +43,42 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let emoji: String
+    let streak: Int
 }
 
 struct calci_widgetEntryView : View {
+    
+    let data = DataService()
+    
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
+        ZStack {
+            Circle()
+                .stroke(Color.white.opacity(0.1), lineWidth: 20)
+            
+            let pct = Double(data.progress())/100.0
+            
+            Circle()
+                .trim(from: 0, to: pct)
+                .stroke(.blue, style:
+                            StrokeStyle(lineWidth: 20,
+                                        lineCap: .round,
+                                        lineJoin: .round))
+                .rotationEffect(.degrees(-90))
+            
+            VStack {
+                //                Text("Streak")
+                //                    .font(.system(size: 30))
+                Text(String(data.progress()))
+                    .font(.title)
+            }
+            .foregroundStyle(.white)
+            .fontDesign(.rounded)
+            
         }
+        .padding()
+        .containerBackground(.black, for: .widget)
     }
 }
 
@@ -80,6 +105,6 @@ struct calci_widget: Widget {
 #Preview(as: .systemSmall) {
     calci_widget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(date: .now, streak: 1)
+    SimpleEntry(date: .now, streak: 4)
 }
